@@ -13,6 +13,7 @@
 from flask import Flask, render_template, request
 import pickle, time, os
 import pymongo
+import yaml
 from bson.objectid import ObjectId
 
 # TODO figure out did I ever actually use mongoengine? Seems like it's deprecated
@@ -66,9 +67,10 @@ app.config.from_object(__name__+'.ConfigClass')
 # # Setup Flask-User and specify the User data-model
 # user_manager = UserManager(app, db, User)
 
+config = yaml.safe_load(open("config.yml"))
 
-user_email = "pat@example.com"
-user_level = "basic"
+# TODO once logins are working this should be taken from users email address
+user_email = config["flask"]["user_email"]
 
 # Homepage
 @app.route("/")
@@ -91,8 +93,8 @@ def success():
     queries_list = html_data_2.split(",")
     print(queries_list)
 
-    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-    mydb = myclient["redditapp"]
+    myclient = pymongo.MongoClient(config["flask"]["db_url"])
+    mydb = myclient[config["flask"]["db_name"]]
     mycol = mydb["queries"]
 
     mydict = { "email": user_email, "subreddit": html_data_1, "search_terms": queries_list }
@@ -121,8 +123,8 @@ def success():
 # @login_required
 def the_get_page():
     # TODO is there a plugin we can use here?
-    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-    mydb = myclient["redditapp"]
+    myclient = pymongo.MongoClient(config["flask"]["db_url"])
+    mydb = myclient[config["flask"]["db_name"]]
     mycol = mydb["queries"]
     mydict = mycol.find({"email":user_email})
     return render_template("/get_page.html", retrieve_dictionary=mydict)
@@ -143,8 +145,8 @@ def delete_element():
     print("hello")
     print(key)
 
-    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-    mydb = myclient["redditapp"]
+    myclient = pymongo.MongoClient(config["flask"]["db_url"])
+    mydb = myclient[config["flask"]["db_name"]]
     queries = mydb["queries"]
 
     # Find what subreddit this query is for

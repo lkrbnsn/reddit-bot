@@ -8,3 +8,7 @@ email:
   smtp_server: ""
   sender_email: ""
   password: ""
+flask:
+  user_email: ""
+  db_url: "mongodb://localhost:27017/"
+  db_name: ""
