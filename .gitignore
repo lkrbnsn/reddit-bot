@@ -1,0 +1,6 @@
+__pycache__/
+config.yml
+notes.txt
+test_site/
+user_test/
+venv/

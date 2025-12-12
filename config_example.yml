@@ -1,0 +1,10 @@
+loop_time: 300
+reddit:
+  client_id: ""
+  client_secret: ""
+  user_agent: ""
+email:
+  port: 465
+  smtp_server: ""
+  sender_email: ""
+  password: ""
