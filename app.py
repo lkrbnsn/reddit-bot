@@ -4,22 +4,7 @@ import pymongo
 import yaml
 from bson.objectid import ObjectId
 
-# Class-based application configuration
-class ConfigClass(object):
-    """ Flask application config """
-
-    # Flask settings
-    SECRET_KEY = 'This is an INSECURE secret!! DO NOT use this in production!!'
-
-    # Flask-User settings
-    USER_APP_NAME = "LetMeKnow"      # Shown in and email templates and page footers
-    USER_ENABLE_EMAIL = True      # Enable email authentication
-    USER_ENABLE_USERNAME = False    # Disable username authentication
-    USER_REQUIRE_RETYPE_PASSWORD = False    # Simplify register form
-    USER_EMAIL_SENDER_EMAIL = "admin@letmeknow.co"
-
 app = Flask(__name__)
-app.config.from_object(__name__+'.ConfigClass')
 
 config = yaml.safe_load(open("config.yml"))
 
