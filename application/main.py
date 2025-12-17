@@ -3,6 +3,7 @@ import time
 import pymongo
 import yaml
 from bson.objectid import ObjectId
+from flask_login import login_required, current_user
 
 main = Blueprint('main', __name__)
 
@@ -53,12 +54,13 @@ def success():
 
 # GET
 @main.route("/get_page")
+@login_required
 def the_get_page():
     client = pymongo.MongoClient(config["flask"]["db_url"])
     db = client[config["flask"]["db_name"]]
     queries = db["queries"]
     dict = queries.find({"email":user_email})
-    return render_template("/get_page.html", retrieve_dictionary=dict)
+    return render_template("/get_page.html", retrieve_dictionary=dict, name=current_user.name)
 
 
 # DELETE
