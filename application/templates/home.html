@@ -37,7 +37,6 @@
                 <p class="text-xl mb-8 text-orange-100">Get everything you need to know into your inbox, as soon as it happens</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="{{ url_for('auth.signup') }}" class="bg-white text-orange-600 px-10 py-4 rounded-lg font-semibold text-lg hover:bg-orange-50 transition transform hover:scale-105 shadow-xl">Start Your Free Trial</a>
-                    <button class="glass px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:bg-opacity-20 transition">Watch Demo</button>
                 </div>
             </div>
         </div>
@@ -46,8 +45,17 @@
     <!-- Features Section -->
     <section id="features" class="py-20">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Everything You Need to Succeed</h2>
+            <!-- <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Everything You Need to Succeed</h2> -->
             <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+                    <div class="bg-green-100 w-16 h-16 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Community Updates</h3>
+                    <p class="text-gray-600">Get the latest info from all your subreddits, with notifications when posts with your selected keywords go up.</p>
+                </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
                     <div class="bg-orange-100 w-16 h-16 rounded-lg flex items-center justify-center mb-4">
                         <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -55,7 +63,7 @@
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-gray-800">Lightning Fast</h3>
-                    <p class="text-gray-600">Experience blazing speed with our optimized infrastructure that handles millions of requests seamlessly.</p>
+                    <p class="text-gray-600">Our infrastructure checks for updates every five minutes, meaning you'll be the first to know.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
                     <div class="bg-blue-100 w-16 h-16 rounded-lg flex items-center justify-center mb-4">
@@ -66,15 +74,6 @@
                     <h3 class="text-xl font-bold mb-3 text-gray-800">Secure by Default</h3>
                     <p class="text-gray-600">Enterprise-grade security with end-to-end encryption, ensuring your data stays protected.</p>
                 </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
-                    <div class="bg-green-100 w-16 h-16 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-gray-800">Team Collaboration</h3>
-                    <p class="text-gray-600">Work together in real-time with powerful collaboration tools designed for distributed teams.</p>
-                </div>
             </div>
         </div>
     </section>
@@ -84,124 +83,56 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold mb-4 text-gray-800">Simple, Transparent Pricing</h2>
-                <p class="text-xl text-gray-600">Choose the perfect plan for your team</p>
+                <p class="text-xl text-gray-600">All features available for one low price</p>
             </div>
-            
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- Starter Plan -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition transform hover:-translate-y-2">
+
+            <div class="max-w-lg mx-auto">
+                <!-- Single Plan -->
+                <div class="bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl shadow-2xl p-10 text-white transform hover:scale-105 transition">
                     <div class="text-center mb-8">
-                        <h3 class="text-2xl font-bold mb-2 text-gray-800">Starter</h3>
-                        <p class="text-gray-600 mb-6">Perfect for individuals</p>
-                        <div class="flex items-center justify-center mb-6">
-                            <span class="text-5xl font-bold text-gray-800">$10</span>
-                            <span class="text-gray-600 ml-2">/month</span>
+                        <div class="flex items-center justify-center mb-8">
+                            <span class="text-6xl font-bold">$8</span>
+                            <span class="text-orange-100 ml-2 text-xl">/month</span>
                         </div>
                         <a href="{{ url_for('auth.signup') }}" class="w-full bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold hover:bg-orange-50 transition shadow-lg block text-center">Get Started</a>
                     </div>
                     <ul class="space-y-4">
                         <li class="flex items-start">
-                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700">Set up to 10 alerts</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700">Alerts sent within 5 minutes of posting</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700">Notifications via email</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700">Email support</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span class="text-gray-700">Setup via browser - mobile or desktop</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Professional Plan -->
-                <div class="bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl shadow-2xl p-8 text-white relative transform md:scale-105 hover:scale-110 transition">
-                    <div class="absolute top-0 right-0 bg-blue-400 text-white px-4 py-1 rounded-bl-lg rounded-tr-2xl text-sm font-bold">POPULAR</div>
-                    <div class="text-center mb-8">
-                        <h3 class="text-2xl font-bold mb-2">Professional</h3>
-                        <p class="text-orange-100 mb-6">For growing businesses</p>
-                        <div class="flex items-center justify-center mb-6">
-                            <span class="text-5xl font-bold">$79</span>
-                            <span class="text-orange-100 ml-2">/month</span>
-                        </div>
-                        <a href="{{ url_for('auth.signup') }}" class="w-full bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-gray-700 transition block text-center">Get Started</a>
-                    </div>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
                             <svg class="w-6 h-6 text-blue-300 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Unlimited team members</span>
+                            <span class="text-lg">Set up to 10 alerts</span>
                         </li>
                         <li class="flex items-start">
                             <svg class="w-6 h-6 text-blue-300 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>500 GB storage</span>
+                            <span class="text-lg">Alerts sent within 5 minutes of posting</span>
                         </li>
                         <li class="flex items-start">
                             <svg class="w-6 h-6 text-blue-300 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Advanced analytics & reporting</span>
+                            <span class="text-lg">Notifications via email</span>
                         </li>
                         <li class="flex items-start">
                             <svg class="w-6 h-6 text-blue-300 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Priority 24/7 support</span>
+                            <span class="text-lg">Setup via browser - mobile or desktop</span>
                         </li>
                         <li class="flex items-start">
                             <svg class="w-6 h-6 text-blue-300 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            <span>Custom integrations</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-blue-300 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>API access</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg class="w-6 h-6 text-blue-300 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                            </svg>
-                            <span>Advanced security features</span>
+                            <span class="text-lg">Email support</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <p class="text-center text-gray-600 mt-12">All plans include a 7-day free trial.</p>
-        </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="gradient-bg text-white py-20">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Workflow?</h2>
-            <p class="text-xl mb-8 text-orange-100 max-w-2xl mx-auto">Join thousands of teams already using CloudFlow to streamline their operations and boost productivity.</p>
-            <a href="{{ url_for('auth.signup') }}" class="bg-white text-orange-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-orange-50 transition transform hover:scale-105 shadow-xl text-center">Start Free Trial</a>
+            <p class="text-center text-gray-600 mt-12">All plans include a 7-day free trial.</p>
         </div>
     </section>
 
