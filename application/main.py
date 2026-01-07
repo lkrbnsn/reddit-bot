@@ -60,7 +60,7 @@ def the_get_page():
     db = client[config["flask"]["db_name"]]
     queries = db["queries"]
     dict = queries.find({"email":user_email})
-    return render_template("/get_page.html", retrieve_dictionary=dict, name=current_user.name)
+    return render_template("/get_page.html", retrieve_dictionary=dict, email=current_user.email)
 
 
 # DELETE
