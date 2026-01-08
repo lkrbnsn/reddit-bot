@@ -1,25 +1,11 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Blueprint
 import time
 import pymongo
 import yaml
 from bson.objectid import ObjectId
+from flask_login import login_required, current_user
 
-# Class-based application configuration
-class ConfigClass(object):
-    """ Flask application config """
-
-    # Flask settings
-    SECRET_KEY = 'This is an INSECURE secret!! DO NOT use this in production!!'
-
-    # Flask-User settings
-    USER_APP_NAME = "LetMeKnow"      # Shown in and email templates and page footers
-    USER_ENABLE_EMAIL = True      # Enable email authentication
-    USER_ENABLE_USERNAME = False    # Disable username authentication
-    USER_REQUIRE_RETYPE_PASSWORD = False    # Simplify register form
-    USER_EMAIL_SENDER_EMAIL = "admin@letmeknow.co"
-
-app = Flask(__name__)
-app.config.from_object(__name__+'.ConfigClass')
+main = Blueprint('main', __name__)
 
 config = yaml.safe_load(open("config.yml"))
 
@@ -27,11 +13,11 @@ config = yaml.safe_load(open("config.yml"))
 user_email = config["flask"]["user_email"]
 
 # Homepage
-@app.route("/")
+@main.route("/")
 def home_page():
     return render_template("/home.html")
 
-@app.route("/success", methods=['POST'])
+@main.route("/success", methods=['POST'])
 def success():
     html_data_1 = request.form["subreddit_text"]
     html_data_2 = request.form["queries_text"]
@@ -67,17 +53,18 @@ def success():
     return render_template("/get_page.html", retrieve_dictionary=dict)
 
 # GET
-@app.route("/get_page")
+@main.route("/get_page")
+@login_required
 def the_get_page():
     client = pymongo.MongoClient(config["flask"]["db_url"])
     db = client[config["flask"]["db_name"]]
     queries = db["queries"]
     dict = queries.find({"email":user_email})
-    return render_template("/get_page.html", retrieve_dictionary=dict)
+    return render_template("/get_page.html", retrieve_dictionary=dict, email=current_user.email)
 
 
 # DELETE
-@app.route("/delete_element", methods=['POST'])
+@main.route("/delete_element", methods=['POST'])
 def delete_element():
     key = request.form["entry1"]
     print(key)
@@ -107,4 +94,4 @@ def delete_element():
     return render_template("/get_page.html", retrieve_dictionary=dict)
 
 if __name__== '__main__':
-    app.run(host="0.0.0.0", debug=True, port=5000)
+    main.run(host="0.0.0.0", debug=True, port=5000)
